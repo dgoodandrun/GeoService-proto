@@ -1,4 +1,4 @@
-module GeoService/geo-service/proto
+module github.com/dgoodandrun/GeoService-proto
 
 go 1.23.0
 
