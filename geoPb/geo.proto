@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package geo;
+
+option go_package = "/gRPC;geoPb";
+
+service GeoProvider {
+  rpc AddressSearch(AddressSearchRequest) returns (AddressSearchResponse);
+  rpc GeoCode(GeoCodeRequest) returns (GeoCodeResponse);
+}
+
+message AddressSearchRequest {
+  string input = 1;
+}
+
+message AddressSearchResponse {
+  repeated Address addresses = 1;
+}
+
+message GeoCodeRequest {
+  string lat = 1;
+  string lng =2;
+}
+
+message GeoCodeResponse {
+  repeated Address addresses = 1;
+}
+
+message Address {
+  string city = 1;
+  string street = 2;
+  string house = 3;
+  string lat = 4;
+  string lon = 5;
+}
+

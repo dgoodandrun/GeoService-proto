@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "/gRPC;userPb";
+
+service UserService {
+  rpc SaveUser(SaveUserRequest) returns (SaveUserResponse);
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+  rpc ListUsers(ListUsersRequest) returns (ListUsersResponse);
+}
+
+message SaveUserRequest {
+  User user = 1;
+}
+
+message SaveUserResponse {}
+
+message GetUserRequest {
+  string username = 1;
+}
+
+message GetUserResponse {
+  string username = 1;
+  string password = 2;
+}
+
+message ListUsersRequest {}
+
+message ListUsersResponse {
+  repeated User users = 1;
+}
+
+message User {
+  string username = 1;
+  string password = 2;
+}
